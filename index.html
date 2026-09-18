@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="sq" data-lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fatjeta Nerguti — Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F2FB; --bg-alt:#FFFFFF;
+  --violet:#E7DDFF; --violet-deep:#B9A6E8;
+  --ink:#211B3B; --ink-muted:#6C6585;
+  --coral:#FF6B4A; --coral-soft:#FFE4DB;
+  --teal:#17836A; --teal-soft:#DCF2E9;
+  --serif:'Fraunces',serif; --sans:'Work Sans',sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;}
+a{color:inherit;}
+.wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+h1,h2,h3{font-family:var(--serif); font-weight:450; margin:0; letter-spacing:-0.01em;}
+p{max-width:64ch;}
+
+/* Header */
+header{
+  position:sticky; top:0; z-index:50; backdrop-filter:blur(8px);
+  background:rgba(245,242,251,0.86); border-bottom:1px solid var(--violet);
+}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:1040px; margin:0 auto;}
+.logo{font-family:var(--serif); font-size:20px; font-weight:600;}
+nav.links{display:flex; gap:26px; align-items:center;}
+nav.links a{text-decoration:none; font-size:15px; color:var(--ink-muted); transition:color .15s;}
+nav.links a:hover{color:var(--ink);}
+.nav-actions{display:flex; gap:10px; align-items:center;}
+button{font-family:var(--sans); cursor:pointer; border:none;}
+.btn{padding:9px 18px; border-radius:100px; font-size:14px; font-weight:500;}
+.btn-ghost{background:transparent; border:1px solid var(--violet-deep); color:var(--ink);}
+.btn-ghost:hover{background:var(--violet);}
+.btn-solid{background:var(--coral); color:#fff;}
+.btn-solid:hover{background:#e85a3d;}
+.lang-toggle{background:var(--violet); border-radius:100px; padding:6px; display:flex; gap:2px;}
+.lang-toggle button{background:transparent; border-radius:100px; padding:5px 11px; font-size:13px; color:var(--ink-muted); font-weight:500;}
+.lang-toggle button.active{background:#fff; color:var(--ink);}
+@media(max-width:760px){nav.links{display:none;}}
+
+/* Hero */
+.hero{padding:96px 0 60px; position:relative; overflow:hidden;}
+.hero-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;}
+.eyebrow{color:var(--ink-muted); font-size:15px; margin-bottom:14px;}
+.hero h1{font-size:clamp(42px,7vw,74px); line-height:0.98;}
+.hero .role{font-family:var(--serif); font-style:italic; color:var(--coral); font-size:clamp(22px,3vw,30px); margin-top:8px;}
+.hero p.summary{margin-top:22px; font-size:17px; color:var(--ink-muted); max-width:52ch;}
+.contact-row{display:flex; flex-wrap:wrap; gap:14px 22px; margin-top:26px; font-size:14px;}
+.contact-row a{text-decoration:none; border-bottom:1px solid var(--violet-deep); padding-bottom:2px;}
+.contact-row a:hover{color:var(--coral); border-color:var(--coral);}
+.blob-wrap{position:relative; display:flex; justify-content:center;}
+.blob-wrap svg{width:100%; max-width:340px; height:auto;}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr;} .blob-wrap{order:-1; margin-bottom:10px;}}
+
+/* Quote strip */
+.quote-strip{background:var(--violet); padding:46px 0;}
+.quote-strip blockquote{margin:0; font-family:var(--serif); font-style:italic; font-size:clamp(20px,2.6vw,28px); max-width:760px; line-height:1.4;}
+.quote-strip cite{display:block; margin-top:16px; font-style:normal; font-family:var(--sans); font-size:14px; color:var(--ink-muted);}
+
+section.block{padding:80px 0;}
+section.block.alt{background:var(--bg-alt);}
+.section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:44px;}
+.section-head h2{font-size:clamp(28px,3.4vw,36px);}
+.add-btn{font-size:13px; color:var(--coral); background:none; border:1px dashed var(--coral); border-radius:100px; padding:6px 14px;}
+.add-btn:hover{background:var(--coral-soft);}
+
+/* Experience */
+.exp-item{border-top:1px solid var(--violet); padding:28px 0; display:grid; grid-template-columns:180px 1fr; gap:24px;}
+.exp-item:last-child{border-bottom:1px solid var(--violet);}
+.exp-date{color:var(--ink-muted); font-size:14px; padding-top:3px;}
+.exp-role{font-family:var(--serif); font-size:21px; margin-bottom:2px;}
+.exp-org{color:var(--coral); font-size:14px; margin-bottom:12px; font-weight:500;}
+.exp-item ul{margin:0; padding-left:18px; color:var(--ink-muted); font-size:15px;}
+.exp-item li{margin-bottom:5px;}
+.exp-remove{font-size:12px; color:var(--ink-muted); background:none; margin-top:10px; text-decoration:underline;}
+@media(max-width:640px){.exp-item{grid-template-columns:1fr; gap:6px;}}
+
+/* Projects */
+.proj-row{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:44px 0; border-top:1px solid var(--violet);}
+.proj-row:last-child{border-bottom:1px solid var(--violet);}
+.proj-row:nth-child(even){direction:rtl;}
+.proj-row:nth-child(even) > *{direction:ltr;}
+.proj-index{font-family:var(--serif); font-style:italic; color:var(--violet-deep); font-size:16px; margin-bottom:8px;}
+.proj-title{font-family:var(--serif); font-size:26px; margin-bottom:10px;}
+.proj-desc{color:var(--ink-muted); font-size:15px; margin-bottom:16px;}
+.proj-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+.tag{background:var(--teal-soft); color:var(--teal); font-size:12.5px; padding:5px 11px; border-radius:100px; font-weight:500;}
+.proj-link{font-size:14px; text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:2px;}
+.proj-visual{background:var(--violet); border-radius:18px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-style:italic; font-size:20px; color:var(--violet-deep); text-align:center; padding:20px;}
+.proj-remove{font-size:12px; color:var(--ink-muted); background:none; text-decoration:underline; margin-top:4px;}
+@media(max-width:700px){.proj-row, .proj-row:nth-child(even){grid-template-columns:1fr; direction:ltr;} .proj-visual{order:-1;}}
+
+/* Skills */
+.skill-group{margin-bottom:30px;}
+.skill-group h3{font-family:var(--sans); font-weight:600; font-size:15px; color:var(--ink-muted); margin-bottom:14px;}
+.pill-row{display:flex; flex-wrap:wrap; gap:10px;}
+.pill{background:var(--bg); border:1px solid var(--violet-deep); padding:8px 16px; border-radius:100px; font-size:14px;}
+
+/* Education & Certifications */
+.edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+.edu-card{background:var(--bg); border-radius:18px; padding:30px; border:1px solid var(--violet);}
+.edu-card h3{font-family:var(--serif); font-size:20px; margin-bottom:6px;}
+.edu-card .org{color:var(--coral); font-size:14px; margin-bottom:10px; font-weight:500;}
+.edu-card p{color:var(--ink-muted); font-size:14px; margin:0;}
+.cert-list{margin-top:44px;}
+.cert-list h3.label{font-family:var(--sans); font-weight:600; font-size:15px; color:var(--ink-muted); margin-bottom:16px;}
+.cert-row{display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-top:1px solid var(--violet); font-size:15px;}
+.cert-row:last-child{border-bottom:1px solid var(--violet);}
+.cert-name{font-weight:500;}
+.cert-org{color:var(--ink-muted); font-size:13.5px;}
+@media(max-width:700px){.edu-grid{grid-template-columns:1fr;}}
+
+/* Footer */
+footer{background:var(--ink); color:var(--bg); padding:80px 0 40px;}
+footer h2{font-size:clamp(34px,6vw,58px); color:#fff; max-width:14ch;}
+footer .foot-sub{color:var(--violet-deep); margin-top:16px; font-size:16px;}
+.foot-links{display:flex; flex-wrap:wrap; gap:24px; margin-top:36px; font-size:14px;}
+.foot-links a{text-decoration:none; border-bottom:1px solid rgba(245,242,251,0.3); padding-bottom:2px;}
+.foot-links a:hover{border-color:var(--coral); color:var(--coral);}
+.foot-bottom{margin-top:60px; padding-top:24px; border-top:1px solid rgba(245,242,251,0.15); font-size:12.5px; color:var(--ink-muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+/* Editable state */
+[contenteditable="true"]{outline:1.5px dashed var(--coral); outline-offset:3px; border-radius:3px; cursor:text;}
+[contenteditable="true"]:focus{outline:1.5px solid var(--coral);}
+body.admin-mode .admin-only{display:inline-flex;}
+.admin-only{display:none;}
+.admin-bar{position:fixed; bottom:0; left:0; right:0; background:var(--ink); color:#fff; padding:12px 20px; z-index:200; display:none; align-items:center; justify-content:space-between; font-size:13px; gap:14px; flex-wrap:wrap;}
+body.admin-mode .admin-bar{display:flex;}
+.admin-bar .grp{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+.admin-bar button{background:rgba(255,255,255,0.12); color:#fff; padding:8px 14px; border-radius:8px; font-size:12.5px;}
+.admin-bar button:hover{background:rgba(255,255,255,0.22);}
+.admin-bar button.danger{background:rgba(255,107,74,0.25);}
+
+/* Modal */
+.modal-overlay{position:fixed; inset:0; background:rgba(33,27,59,0.55); display:none; align-items:center; justify-content:center; z-index:300; padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal{background:#fff; border-radius:20px; padding:36px; max-width:380px; width:100%;}
+.modal h3{font-family:var(--serif); font-size:22px; margin-bottom:8px;}
+.modal p.hint{color:var(--ink-muted); font-size:13.5px; margin-bottom:20px;}
+.modal input[type=password], .modal input[type=text]{width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--violet-deep); font-family:var(--sans); font-size:15px; margin-bottom:12px;}
+.modal-actions{display:flex; gap:10px; margin-top:6px;}
+.modal-error{color:var(--coral); font-size:13px; min-height:18px; margin-bottom:4px;}
+.file-input-label{display:inline-block; font-size:12.5px; text-decoration:underline; cursor:pointer;}
+
+.secret-dot{
+  position:fixed; bottom:14px; left:14px; width:9px; height:9px; border-radius:50%;
+  background:var(--ink-muted); opacity:0.12; border:none; padding:0; z-index:60;
+  transition:opacity .2s;
+}
+.secret-dot:hover{opacity:0.4;}
+body.admin-mode .secret-dot{opacity:0.4; background:var(--coral);}
+
+.blob-anim{animation:blobmorph 14s ease-in-out infinite alternate;}
+@keyframes blobmorph{
+  0%{d:path("M120,20 C160,10 200,40 210,90 C220,140 190,190 140,205 C90,220 40,195 25,145 C10,95 30,35 80,22 C93,18 107,17 120,20 Z");}
+  100%{d:path("M130,15 C175,25 205,65 200,110 C195,160 155,205 105,210 C55,215 15,175 15,125 C15,75 55,20 105,15 C113,13 122,13 130,15 Z");}
+}
+@media (prefers-reduced-motion: reduce){ .blob-anim{animation:none;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner wrap" style="padding-left:0;padding-right:0;">
+    <div class="logo">FN</div>
+    <nav class="links">
+      <a href="#experience" data-t="nav.experience">Eksperienca</a>
+      <a href="#projects" data-t="nav.projects">Projekte</a>
+      <a href="#skills" data-t="nav.skills">Aftësi</a>
+      <a href="#education" data-t="nav.education">Edukim</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="lang-toggle">
+        <button id="lang-sq" class="active" onclick="setLang('sq')">SQ</button>
+        <button id="lang-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#footer" class="btn btn-solid" data-t="nav.contact">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" data-t="hero.eyebrow">Tiranë, Shqipëri</div>
+      <h1 id="hero-name" contenteditable="false" data-path="hero.name">Fatjeta Nerguti</h1>
+      <div class="role" id="hero-role" contenteditable="false" data-path="hero.role">Full-Stack Developer</div>
+      <p class="summary" id="hero-summary" contenteditable="false" data-path="hero.summary">Ndërtoj aplikacione web nga fillimi në fund — nga ndërfaqja te baza e të dhënave.</p>
+      <div class="contact-row">
+        <a href="mailto:fatjetanerguti8@gmail.com">fatjetanerguti8@gmail.com</a>
+        <a href="tel:+355696542055">+355 69 654 2055</a>
+        <a href="https://github.com/fatjetanerguti" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/fatjeta-nerguti-b122a129b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="blob-wrap">
+      <svg viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg">
+        <path class="blob-anim" fill="var(--coral-soft)" d="M120,20 C160,10 200,40 210,90 C220,140 190,190 140,205 C90,220 40,195 25,145 C10,95 30,35 80,22 C93,18 107,17 120,20 Z"/>
+        <text x="115" y="122" text-anchor="middle" font-family="Fraunces, serif" font-size="34" font-style="italic" fill="var(--ink)">FN</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="quote-strip">
+  <div class="wrap">
+    <blockquote id="quote-text" contenteditable="false" data-path="quote">Më pëlqen kur një ide bëhet diçka që mund ta prekësh — një faqe që funksionon, jo vetëm një skicë.</blockquote>
+    <cite data-t="quote.cite">— Fatjeta Nerguti</cite>
+  </div>
+</div>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-t="experience.title">Eksperienca</h2>
+      <button class="add-btn admin-only" onclick="addExperience()" data-t="common.add">+ Shto</button>
+    </div>
+    <div id="experience-list"></div>
+  </div>
+</section>
+
+<section class="block alt" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-t="projects.title">Projektet</h2>
+      <button class="add-btn admin-only" onclick="addProject()" data-t="common.add">+ Shto</button>
+    </div>
+    <div id="projects-list"></div>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-t="skills.title">Aftësitë</h2>
+      <button class="add-btn admin-only" onclick="addSkill()" data-t="common.add">+ Shto</button>
+    </div>
+    <div id="skills-list"></div>
+  </div>
+</section>
+
+<section class="block alt" id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-t="education.title">Edukimi</h2>
+    </div>
+    <div class="edu-grid" id="education-list"></div>
+    <div class="cert-list">
+      <div class="section-head" style="margin-bottom:16px;">
+        <h3 class="label" data-t="certs.title">Certifikime</h3>
+        <button class="add-btn admin-only" onclick="addCert()" data-t="common.add">+ Shto</button>
+      </div>
+      <div id="certs-list"></div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="wrap">
+    <h2 data-t="footer.headline">Le të flasim.</h2>
+    <p class="foot-sub" data-t="footer.sub">E hapur për role full-stack dhe bashkëpunime.</p>
+    <div class="foot-links">
+      <a href="mailto:fatjetanerguti8@gmail.com">fatjetanerguti8@gmail.com</a>
+      <a href="tel:+355696542055">+355 69 654 2055</a>
+      <a href="https://github.com/fatjetanerguti" target="_blank" rel="noopener">github.com/fatjetanerguti</a>
+      <a href="https://linkedin.com/in/fatjeta-nerguti-b122a129b" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fatjeta Nerguti</span>
+      <span data-t="footer.made">Tiranë, Shqipëri</span>
+    </div>
+  </div>
+</footer>
+
+<button class="secret-dot" onclick="openAdminModal()" aria-label="Admin"></button>
+
+<!-- Admin login modal -->
+<div class="modal-overlay" id="admin-modal">
+  <div class="modal">
+    <h3 data-t="modal.title">Hyrje si Admin</h3>
+    <p class="hint" data-t="modal.hint">Fjalëkalimi ruhet vetëm si hash në këtë shfletues. Kjo NUK është siguri e vërtetë e serverit — kushdo që hap "View Source" mund të shohë kodin.</p>
+    <input type="password" id="admin-pass" placeholder="Fjalëkalimi">
+    <div class="modal-error" id="admin-error"></div>
+    <div class="modal-actions">
+      <button class="btn btn-solid" onclick="tryLogin()" data-t="modal.login">Hyr</button>
+      <button class="btn btn-ghost" onclick="closeAdminModal()" data-t="modal.cancel">Anulo</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin bar -->
+<div class="admin-bar" id="admin-bar">
+  <div class="grp">
+    <span data-t="admin.mode">Mënyra Admin aktive — kliko tekstin për ta redaktuar</span>
+  </div>
+  <div class="grp">
+    <button onclick="changePassword()" data-t="admin.changepass">Ndrysho fjalëkalimin</button>
+    <button onclick="exportJSON()" data-t="admin.export">Eksporto JSON</button>
+    <label class="btn" style="background:rgba(255,255,255,0.12);padding:8px 14px;border-radius:8px;">
+      <span data-t="admin.import">Importo JSON</span>
+      <input type="file" id="import-file" accept="application/json" style="display:none;" onchange="importJSON(event)">
+    </label>
+    <button class="danger" onclick="resetToDefault()" data-t="admin.reset">Rikthe fillestarin</button>
+    <button onclick="exitAdmin()" data-t="admin.exit">Dil</button>
+  </div>
+</div>
+
+<script>
+/* ---------- i18n static strings ---------- */
+const STR = {
+  sq:{
+    "nav.experience":"Eksperienca","nav.projects":"Projekte","nav.skills":"Aftësi","nav.education":"Edukim",
+    "nav.admin":"Admin","nav.contact":"Kontakt",
+    "hero.eyebrow":"Tiranë, Shqipëri",
+    "quote.cite":"— Fatjeta Nerguti",
+    "experience.title":"Eksperienca","projects.title":"Projektet","skills.title":"Aftësitë","education.title":"Edukimi",
+    "certs.title":"Certifikime",
+    "footer.headline":"Le të flasim.","footer.sub":"E hapur për role full-stack dhe bashkëpunime.","footer.made":"Tiranë, Shqipëri",
+    "common.add":"+ Shto","common.remove":"Hiq",
+    "modal.title":"Hyrje si Admin",
+    "modal.hint":"Fjalëkalimi ruhet vetëm si hash në këtë shfletues. Kjo NUK është siguri e vërtetë e serverit — kushdo që hap \"View Source\" mund të shohë kodin.",
+    "modal.login":"Hyr","modal.cancel":"Anulo",
+    "admin.mode":"Mënyra Admin aktive — kliko tekstin për ta redaktuar",
+    "admin.changepass":"Ndrysho fjalëkalimin","admin.export":"Eksporto JSON","admin.import":"Importo JSON",
+    "admin.reset":"Rikthe fillestarin","admin.exit":"Dil",
+    "err.wrong":"Fjalëkalim i gabuar.","err.locked":"Shumë përpjekje — provo sërish pas 30 sekondash."
+  },
+  en:{
+    "nav.experience":"Experience","nav.projects":"Projects","nav.skills":"Skills","nav.education":"Education",
+    "nav.admin":"Admin","nav.contact":"Contact",
+    "hero.eyebrow":"Tirana, Albania",
+    "quote.cite":"— Fatjeta Nerguti",
+    "experience.title":"Experience","projects.title":"Projects","skills.title":"Skills","education.title":"Education",
+    "certs.title":"Certifications",
+    "footer.headline":"Let's talk.","footer.sub":"Open to full-stack roles and collaborations.","footer.made":"Tirana, Albania",
+    "common.add":"+ Add","common.remove":"Remove",
+    "modal.title":"Admin login",
+    "modal.hint":"The password is stored only as a hash in this browser. This is NOT real server-side security — anyone who opens \"View Source\" can see the code.",
+    "modal.login":"Log in","modal.cancel":"Cancel",
+    "admin.mode":"Admin mode active — click text to edit it",
+    "admin.changepass":"Change password","admin.export":"Export JSON","admin.import":"Import JSON",
+    "admin.reset":"Reset to default","admin.exit":"Exit",
+    "err.wrong":"Wrong password.","err.locked":"Too many attempts — try again in 30 seconds."
+  }
+};
+
+/* ---------- default content data ---------- */
+const DEFAULT_DATA = {
+sq:{
+ hero:{name:"Fatjeta Nerguti", role:"Full-Stack Developer", summary:"Ndërtoj aplikacione web nga fillimi në fund — nga ndërfaqja te baza e të dhënave. B.Sc. ICT, certifikuar Front-End nga Brainster Academy me distinction (92%)."},
+ quote:"Më pëlqen kur një ide bëhet diçka që mund ta prekësh — një faqe që funksionon, jo vetëm një skicë.",
+ experience:[
+  {date:"E fundit", role:"Full-Stack Intern", org:"Intermedia", bullets:["Zhvillim aplikacionesh me Angular në front-end dhe Java në back-end.","Punë në ekip mbi funksionalitete reale, jo projekte demo."]},
+  {date:"Më parë", role:"Social Media Sales", org:"Snep.al", bullets:["Menaxhim fushatash dhe komunikim me klientë përmes rrjeteve sociale."]},
+  {date:"Më parë", role:"Customer Service", org:"Laguna", bullets:["Shërbim ndaj klientit dhe zgjidhje problemesh në kohë reale."]},
+  {date:"Më parë", role:"Customer Service", org:"Mulliri i Vjetër", bullets:["Përvoja e parë profesionale — komunikim, organizim dhe përgjegjshmëri."]}
+ ],
+ projects:[
+  {title:"Portfolio Web Application", desc:"Aplikacion portofoli i ndërtuar me ASP.NET Core MVC, Entity Framework Core dhe SQLite, i vendosur live në Render.com me Docker.", tags:["ASP.NET Core","EF Core","SQLite","Docker"], link:"https://github.com/fatjetanerguti/portfolio-app"},
+  {title:"ApiFilma", desc:"REST API për të dhëna filmash — endpoint-e të strukturuara për kërkim, filtrim dhe menaxhim përmbajtjeje.", tags:["REST API","C#"], link:"https://github.com/fatjetanerguti"},
+  {title:"ApiKonsum", desc:"Dashboard analitik për të dhëna konsumi, me vizualizime dhe përmbledhje statistikash.", tags:["Dashboard","Chart.js"], link:"https://github.com/fatjetanerguti"},
+  {title:"EBiblioteka", desc:"Sistem menaxhimi bibliotekash i ndërtuar në ekip pesë-vetësh — libra, anëtarë dhe huazime.", tags:["Ekip 5 vetë","Full-Stack"], link:"https://github.com/fatjetanerguti/EBiblioteka"},
+  {title:"BookersTrip", desc:"Platformë rezervimesh udhëtimesh me front-end, back-end dhe modul fluturimesh të ndarë në repo më vete.", tags:["React","API","Booking"], link:"https://github.com/fatjetanerguti/BookersTrip-Website"},
+  {title:"NutriDay", desc:"Aplikacion për ndjekjen e ushqyerjes ditore dhe zakoneve të shëndetshme.", tags:["Health Tech","Frontend"], link:"https://github.com/fatjetanerguti/nutriday"},
+  {title:"Mood Playlist Tracker", desc:"Aplikacion që sugjeron playlist muzike sipas humorit të përdoruesit.", tags:["JavaScript","API"], link:"https://github.com/fatjetanerguti/mood-playlist-tracker"},
+  {title:"Company Management Dashboard", desc:"Ndërfaqe front-end për menaxhimin e të dhënave dhe proceseve të një kompanie.", tags:["Frontend","Dashboard"], link:"https://github.com/fatjetanerguti/company-management-frontend"}
+ ],
+ skills:[
+  {category:"Front-End", items:["HTML5","CSS3","JavaScript","React.js","Next.js","Angular","Figma"]},
+  {category:"Back-End", items:["C#","ASP.NET Core MVC","Java","Entity Framework Core","REST APIs"]},
+  {category:"Bazat e të dhënave", items:["SQL Server","MySQL","SQLite"]},
+  {category:"Mjete", items:["Git","Docker","Chart.js"]}
+ ],
+ education:[
+  {title:"B.Sc. ICT", org:"Universiteti i Tiranës", note:"2026"},
+  {title:"Front-End Developer Certification", org:"Brainster Academy", note:"92% — distinction"}
+ ],
+ certifications:[
+  {name:"Front-End Developer Certification", org:"Brainster Academy — 92%, distinction"}
+ ]
+},
+en:{
+ hero:{name:"Fatjeta Nerguti", role:"Full-Stack Developer", summary:"I build web applications end to end — from the interface to the database. B.Sc. ICT, Front-End certified by Brainster Academy with distinction (92%)."},
+ quote:"I like it when an idea becomes something you can actually touch — a page that works, not just a sketch.",
+ experience:[
+  {date:"Most recent", role:"Full-Stack Intern", org:"Intermedia", bullets:["Built application features with Angular on the front-end and Java on the back-end.","Worked as part of a team on real functionality, not demo projects."]},
+  {date:"Earlier", role:"Social Media Sales", org:"Snep.al", bullets:["Managed campaigns and client communication across social platforms."]},
+  {date:"Earlier", role:"Customer Service", org:"Laguna", bullets:["Customer support and real-time problem solving."]},
+  {date:"Earlier", role:"Customer Service", org:"Mulliri i Vjetër", bullets:["First professional experience — communication, organization and responsibility."]}
+ ],
+ projects:[
+  {title:"Portfolio Web Application", desc:"A portfolio app built with ASP.NET Core MVC, Entity Framework Core and SQLite, deployed live on Render.com with Docker.", tags:["ASP.NET Core","EF Core","SQLite","Docker"], link:"https://github.com/fatjetanerguti/portfolio-app"},
+  {title:"ApiFilma", desc:"A REST API for movie data — structured endpoints for search, filtering and content management.", tags:["REST API","C#"], link:"https://github.com/fatjetanerguti"},
+  {title:"ApiKonsum", desc:"An analytics dashboard for consumption data, with visualizations and statistical summaries.", tags:["Dashboard","Chart.js"], link:"https://github.com/fatjetanerguti"},
+  {title:"EBiblioteka", desc:"A library management system built with a five-person team — books, members and loans.", tags:["5-person team","Full-Stack"], link:"https://github.com/fatjetanerguti/EBiblioteka"},
+  {title:"BookersTrip", desc:"A travel booking platform with separate front-end, back-end and flights modules.", tags:["React","API","Booking"], link:"https://github.com/fatjetanerguti/BookersTrip-Website"},
+  {title:"NutriDay", desc:"An app for tracking daily nutrition and healthy habits.", tags:["Health Tech","Frontend"], link:"https://github.com/fatjetanerguti/nutriday"},
+  {title:"Mood Playlist Tracker", desc:"An app that suggests music playlists based on the user's mood.", tags:["JavaScript","API"], link:"https://github.com/fatjetanerguti/mood-playlist-tracker"},
+  {title:"Company Management Dashboard", desc:"A front-end interface for managing a company's data and processes.", tags:["Frontend","Dashboard"], link:"https://github.com/fatjetanerguti/company-management-frontend"}
+ ],
+ skills:[
+  {category:"Front-End", items:["HTML5","CSS3","JavaScript","React.js","Next.js","Angular","Figma"]},
+  {category:"Back-End", items:["C#","ASP.NET Core MVC","Java","Entity Framework Core","REST APIs"]},
+  {category:"Databases", items:["SQL Server","MySQL","SQLite"]},
+  {category:"Tools", items:["Git","Docker","Chart.js"]}
+ ],
+ education:[
+  {title:"B.Sc. ICT", org:"University of Tirana", note:"2026"},
+  {title:"Front-End Developer Certification", org:"Brainster Academy", note:"92% — distinction"}
+ ],
+ certifications:[
+  {name:"Front-End Developer Certification", org:"Brainster Academy — 92%, distinction"}
+ ]
+}
+};
+
+/* ---------- state ---------- */
+let DATA = loadData();
+let currentLang = localStorage.getItem('fn_lang') || 'sq';
+let isAdmin = false;
+
+function loadData(){
+  try{
+    const raw = localStorage.getItem('fn_portfolio_data');
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return JSON.parse(JSON.stringify(DEFAULT_DATA));
+}
+function saveData(){
+  localStorage.setItem('fn_portfolio_data', JSON.stringify(DATA));
+}
+
+/* ---------- rendering ---------- */
+function applyStrings(){
+  document.documentElement.lang = currentLang;
+  document.documentElement.dataset.lang = currentLang;
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const key = el.dataset.t;
+    if(STR[currentLang][key] !== undefined) el.textContent = STR[currentLang][key];
+  });
+  document.getElementById('lang-sq').classList.toggle('active', currentLang==='sq');
+  document.getElementById('lang-en').classList.toggle('active', currentLang==='en');
+}
+
+function renderAll(){
+  const d = DATA[currentLang];
+  document.getElementById('hero-name').textContent = d.hero.name;
+  document.getElementById('hero-role').textContent = d.hero.role;
+  document.getElementById('hero-summary').textContent = d.hero.summary;
+  document.getElementById('quote-text').textContent = d.quote;
+  renderExperience(d);
+  renderProjects(d);
+  renderSkills(d);
+  renderEducation(d);
+  applyStrings();
+}
+
+function bindEditable(el, onCommit){
+  el.contentEditable = isAdmin ? "true" : "false";
+  el.oninput = () => { onCommit(el.textContent); saveData(); };
+}
+
+function renderExperience(d){
+  const wrap = document.getElementById('experience-list');
+  wrap.innerHTML = '';
+  d.experience.forEach((item, i)=>{
+    const row = document.createElement('div');
+    row.className = 'exp-item';
+    const dateEl = document.createElement('div');
+    dateEl.className = 'exp-date';
+    dateEl.textContent = item.date;
+    bindEditable(dateEl, v=>item.date=v);
+    const body = document.createElement('div');
+    const role = document.createElement('div');
+    role.className = 'exp-role';
+    role.textContent = item.role;
+    bindEditable(role, v=>item.role=v);
+    const org = document.createElement('div');
+    org.className = 'exp-org';
+    org.textContent = item.org;
+    bindEditable(org, v=>item.org=v);
+    const ul = document.createElement('ul');
+    item.bullets.forEach((b, bi)=>{
+      const li = document.createElement('li');
+      li.textContent = b;
+      bindEditable(li, v=>item.bullets[bi]=v);
+      ul.appendChild(li);
+    });
+    body.append(role, org, ul);
+    if(isAdmin){
+      const rm = document.createElement('button');
+      rm.className = 'exp-remove admin-only';
+      rm.textContent = STR[currentLang]['common.remove'];
+      rm.onclick = ()=>{ DATA.sq.experience.splice(i,1); DATA.en.experience.splice(i,1); saveData(); renderAll(); };
+      body.appendChild(rm);
+    }
+    row.append(dateEl, body);
+    wrap.appendChild(row);
+  });
+}
+
+function renderProjects(d){
+  const wrap = document.getElementById('projects-list');
+  wrap.innerHTML = '';
+  d.projects.forEach((p, i)=>{
+    const row = document.createElement('div');
+    row.className = 'proj-row';
+    const text = document.createElement('div');
+    const idx = document.createElement('div');
+    idx.className = 'proj-index';
+    idx.textContent = String(i+1).padStart(2,'0');
+    const title = document.createElement('div');
+    title.className = 'proj-title';
+    title.textContent = p.title;
+    bindEditable(title, v=>p.title=v);
+    const desc = document.createElement('div');
+    desc.className = 'proj-desc';
+    desc.textContent = p.desc;
+    bindEditable(desc, v=>p.desc=v);
+    const tags = document.createElement('div');
+    tags.className = 'proj-tags';
+    p.tags.forEach(t=>{
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = t;
+      tags.appendChild(tag);
+    });
+    const link = document.createElement('a');
+    link.className = 'proj-link';
+    link.href = p.link; link.target = '_blank'; link.rel = 'noopener';
+    link.textContent = 'GitHub →';
+    text.append(idx, title, desc, tags, link);
+    if(isAdmin){
+      const rm = document.createElement('button');
+      rm.className = 'proj-remove admin-only';
+      rm.textContent = STR[currentLang]['common.remove'];
+      rm.onclick = ()=>{ DATA.sq.projects.splice(i,1); DATA.en.projects.splice(i,1); saveData(); renderAll(); };
+      text.appendChild(rm);
+    }
+    const visual = document.createElement('div');
+    visual.className = 'proj-visual';
+    visual.textContent = p.title;
+    row.append(text, visual);
+    wrap.appendChild(row);
+  });
+}
+
+function renderSkills(d){
+  const wrap = document.getElementById('skills-list');
+  wrap.innerHTML = '';
+  d.skills.forEach((g, gi)=>{
+    const group = document.createElement('div');
+    group.className = 'skill-group';
+    const h3 = document.createElement('h3');
+    h3.textContent = g.category;
+    bindEditable(h3, v=>g.category=v);
+    const row = document.createElement('div');
+    row.className = 'pill-row';
+    g.items.forEach((it, ii)=>{
+      const pill = document.createElement('span');
+      pill.className = 'pill';
+      pill.textContent = it;
+      bindEditable(pill, v=>g.items[ii]=v);
+      row.appendChild(pill);
+    });
+    group.append(h3, row);
+    wrap.appendChild(group);
+  });
+}
+
+function renderEducation(d){
+  const wrap = document.getElementById('education-list');
+  wrap.innerHTML = '';
+  d.education.forEach((e)=>{
+    const card = document.createElement('div');
+    card.className = 'edu-card';
+    const h3 = document.createElement('h3');
+    h3.textContent = e.title;
+    bindEditable(h3, v=>e.title=v);
+    const org = document.createElement('div');
+    org.className = 'org';
+    org.textContent = e.org;
+    bindEditable(org, v=>e.org=v);
+    const p = document.createElement('p');
+    p.textContent = e.note;
+    bindEditable(p, v=>e.note=v);
+    card.append(h3, org, p);
+    wrap.appendChild(card);
+  });
+  const certWrap = document.getElementById('certs-list');
+  certWrap.innerHTML = '';
+  d.certifications.forEach((c, i)=>{
+    const row = document.createElement('div');
+    row.className = 'cert-row';
+    const left = document.createElement('div');
+    const name = document.createElement('div');
+    name.className = 'cert-name';
+    name.textContent = c.name;
+    bindEditable(name, v=>c.name=v);
+    const org = document.createElement('div');
+    org.className = 'cert-org';
+    org.textContent = c.org;
+    bindEditable(org, v=>c.org=v);
+    left.append(name, org);
+    row.appendChild(left);
+    if(isAdmin){
+      const rm = document.createElement('button');
+      rm.className = 'admin-only';
+      rm.style.cssText = 'font-size:12px;color:var(--ink-muted);background:none;text-decoration:underline;';
+      rm.textContent = STR[currentLang]['common.remove'];
+      rm.onclick = ()=>{ DATA.sq.certifications.splice(i,1); DATA.en.certifications.splice(i,1); saveData(); renderAll(); };
+      row.appendChild(rm);
+    }
+    certWrap.appendChild(row);
+  });
+}
+
+/* ---------- add handlers ---------- */
+function addExperience(){
+  DATA.sq.experience.unshift({date:"E re", role:"Rol i ri", org:"Organizata", bullets:["Përshkrim..."]});
+  DATA.en.experience.unshift({date:"New", role:"New role", org:"Organization", bullets:["Description..."]});
+  saveData(); renderAll();
+}
+function addProject(){
+  DATA.sq.projects.push({title:"Projekt i ri", desc:"Përshkrim i shkurtër.", tags:["Tag"], link:"https://github.com/fatjetanerguti"});
+  DATA.en.projects.push({title:"New project", desc:"Short description.", tags:["Tag"], link:"https://github.com/fatjetanerguti"});
+  saveData(); renderAll();
+}
+function addSkill(){
+  DATA.sq.skills.push({category:"Kategori e re", items:["Aftësi"]});
+  DATA.en.skills.push({category:"New category", items:["Skill"]});
+  saveData(); renderAll();
+}
+function addCert(){
+  DATA.sq.certifications.push({name:"Certifikatë e re", org:"Organizata"});
+  DATA.en.certifications.push({name:"New certificate", org:"Organization"});
+  saveData(); renderAll();
+}
+
+/* ---------- lang toggle ---------- */
+function setLang(l){
+  currentLang = l;
+  localStorage.setItem('fn_lang', l);
+  renderAll();
+}
+
+/* ---------- admin auth ---------- */
+const PASS_KEY = 'fn_admin_hash';
+const DEFAULT_PASS = 'fatjeta2026';
+let failedAttempts = 0;
+let lockUntil = 0;
+
+async function sha256(str){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function getStoredHash(){
+  let h = localStorage.getItem(PASS_KEY);
+  if(!h){ h = await sha256(DEFAULT_PASS); localStorage.setItem(PASS_KEY, h); }
+  return h;
+}
+function openAdminModal(){
+  if(isAdmin) return;
+  document.getElementById('admin-error').textContent = '';
+  document.getElementById('admin-pass').value = '';
+  document.getElementById('admin-modal').classList.add('show');
+  setTimeout(()=>document.getElementById('admin-pass').focus(), 50);
+}
+function closeAdminModal(){
+  document.getElementById('admin-modal').classList.remove('show');
+}
+async function tryLogin(){
+  if(Date.now() < lockUntil){
+    document.getElementById('admin-error').textContent = STR[currentLang]['err.locked'];
+    return;
+  }
+  const val = document.getElementById('admin-pass').value;
+  const hash = await sha256(val);
+  const stored = await getStoredHash();
+  if(hash === stored){
+    isAdmin = true;
+    failedAttempts = 0;
+    sessionStorage.setItem('fn_admin_session', '1');
+    document.body.classList.add('admin-mode');
+    closeAdminModal();
+    renderAll();
+  }else{
+    failedAttempts++;
+    document.getElementById('admin-error').textContent = STR[currentLang]['err.wrong'];
+    if(failedAttempts >= 4){
+      lockUntil = Date.now() + 30000;
+      failedAttempts = 0;
+    }
+  }
+}
+function exitAdmin(){
+  isAdmin = false;
+  sessionStorage.removeItem('fn_admin_session');
+  document.body.classList.remove('admin-mode');
+  renderAll();
+}
+async function changePassword(){
+  const np = prompt(currentLang==='sq' ? 'Fjalëkalimi i ri (min 6 shkronja):' : 'New password (min 6 chars):');
+  if(!np || np.length < 6) return;
+  const h = await sha256(np);
+  localStorage.setItem(PASS_KEY, h);
+  alert(currentLang==='sq' ? 'Fjalëkalimi u ndryshua.' : 'Password changed.');
+}
+
+/* ---------- export / import / reset ---------- */
+function exportJSON(){
+  const blob = new Blob([JSON.stringify(DATA, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'fatjeta-portfolio-data.json';
+  a.click();
+}
+function importJSON(evt){
+  const file = evt.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const parsed = JSON.parse(reader.result);
+      if(parsed.sq && parsed.en){
+        DATA = parsed;
+        saveData();
+        renderAll();
+        alert(currentLang==='sq' ? 'Importuar me sukses.' : 'Imported successfully.');
+      }else{
+        alert(currentLang==='sq' ? 'Skedar JSON i pavlefshëm.' : 'Invalid JSON file.');
+      }
+    }catch(e){
+      alert(currentLang==='sq' ? 'Gabim gjatë leximit të skedarit.' : 'Error reading file.');
+    }
+  };
+  reader.readAsText(file);
+}
+function resetToDefault(){
+  const ok = confirm(currentLang==='sq' ? 'Kjo do rikthejë të gjithë përmbajtjen te CV-ja origjinale. Vazhdo?' : 'This will reset all content back to the original CV. Continue?');
+  if(!ok) return;
+  DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
+  saveData();
+  renderAll();
+}
+
+/* ---------- init ---------- */
+(function init(){
+  renderAll();
+  if(sessionStorage.getItem('fn_admin_session') === '1'){
+    isAdmin = true;
+    document.body.classList.add('admin-mode');
+    renderAll();
+  }
+  document.getElementById('admin-pass').addEventListener('keydown', e=>{ if(e.key==='Enter') tryLogin(); });
+})();
+</script>
+</body>
+</html>
