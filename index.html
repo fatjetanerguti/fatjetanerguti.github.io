@@ -52,23 +52,37 @@ button{font-family:var(--sans); cursor:pointer; border:none;}
 @media(max-width:760px){nav.links{display:none;}}
 
 /* Hero */
-.hero{padding:96px 0 60px; position:relative; overflow:hidden;}
+.hero{padding:96px 0 0; position:relative; overflow:hidden;}
 .hero-grid{display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;}
 .eyebrow{color:var(--ink-muted); font-size:15px; margin-bottom:14px;}
 .hero h1{font-size:clamp(42px,7vw,74px); line-height:0.98;}
-.hero .role{font-family:var(--serif); font-style:italic; color:var(--coral); font-size:clamp(22px,3vw,30px); margin-top:8px;}
-.hero p.summary{margin-top:22px; font-size:17px; color:var(--ink-muted); max-width:52ch;}
-.contact-row{display:flex; flex-wrap:wrap; gap:14px 22px; margin-top:26px; font-size:14px;}
-.contact-row a{text-decoration:none; border-bottom:1px solid var(--violet-deep); padding-bottom:2px;}
-.contact-row a:hover{color:var(--coral); border-color:var(--coral);}
+.role-row{display:flex; align-items:center; gap:12px; margin-top:14px;}
+.role-row .divider{width:1px; height:22px; background:var(--violet-deep);}
+.hero .role{font-family:var(--sans); font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:var(--coral); font-size:13.5px;}
+.hero p.summary{margin-top:22px; font-size:17px; line-height:1.75; color:var(--ink-muted); max-width:500px;}
+.hero-ctas{display:flex; flex-wrap:wrap; gap:12px; margin-top:30px;}
+.btn-cta{background:var(--coral); color:#fff; padding:13px 26px; border-radius:100px; font-size:15px; font-weight:500; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:transform .18s ease, background .18s ease;}
+.btn-cta:hover{background:#e85a3d; transform:translateY(-2px);}
+.btn-cta-outline{background:transparent; color:var(--ink); padding:13px 26px; border-radius:100px; font-size:15px; font-weight:500; text-decoration:none; border:1px solid var(--violet-deep); transition:background .18s ease, transform .18s ease;}
+.btn-cta-outline:hover{background:var(--violet); transform:translateY(-2px);}
+.contact-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; font-size:13.5px;}
+.contact-pill{display:inline-flex; align-items:center; gap:7px; text-decoration:none; background:var(--bg-alt); border:1px solid var(--violet); padding:8px 14px 8px 10px; border-radius:100px; color:var(--ink-muted); transition:all .18s ease;}
+.contact-pill svg{width:15px; height:15px; flex-shrink:0;}
+.contact-pill:hover{color:var(--ink); border-color:var(--coral); background:var(--coral-soft); transform:translateY(-1px);}
 .blob-wrap{position:relative; display:flex; justify-content:center;}
-.blob-wrap svg{width:100%; max-width:340px; height:auto;}
+.blob-wrap svg{width:100%; max-width:340px; height:auto; filter:drop-shadow(0 18px 34px rgba(185,166,232,0.45));}
+.hero-photo{width:100%; max-width:300px; aspect-ratio:1/1; border-radius:50%; object-fit:cover; box-shadow:0 18px 34px rgba(185,166,232,0.5); border:6px solid var(--bg-alt);}
+.photo-admin-row{display:flex; gap:8px; justify-content:center; margin-top:14px;}
+.photo-admin-row button{font-size:12px; color:var(--ink-muted); background:var(--bg-alt); border:1px solid var(--violet-deep); border-radius:100px; padding:6px 12px;}
+.photo-admin-row button:hover{background:var(--violet);}
+.hero-wave{display:block; width:100%; height:64px; margin-top:56px;}
 @media(max-width:760px){.hero-grid{grid-template-columns:1fr;} .blob-wrap{order:-1; margin-bottom:10px;}}
 
 /* Quote strip */
-.quote-strip{background:var(--violet); padding:46px 0;}
-.quote-strip blockquote{margin:0; font-family:var(--serif); font-style:italic; font-size:clamp(20px,2.6vw,28px); max-width:760px; line-height:1.4;}
-.quote-strip cite{display:block; margin-top:16px; font-style:normal; font-family:var(--sans); font-size:14px; color:var(--ink-muted);}
+.quote-strip{background:var(--violet); padding:64px 0 52px; position:relative;}
+.quote-mark{font-family:var(--serif); font-size:120px; line-height:1; color:var(--violet-deep); opacity:0.35; height:60px; margin-bottom:-6px;}
+.quote-strip blockquote{margin:0; font-family:var(--serif); font-style:italic; font-size:clamp(19px,2.2vw,25px); max-width:720px; line-height:1.55;}
+.quote-strip cite{display:block; margin-top:26px; font-style:normal; font-family:var(--sans); font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted);}
 
 section.block{padding:80px 0;}
 section.block.alt{background:var(--bg-alt);}
@@ -99,7 +113,10 @@ section.block.alt{background:var(--bg-alt);}
 .proj-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
 .tag{background:var(--teal-soft); color:var(--teal); font-size:12.5px; padding:5px 11px; border-radius:100px; font-weight:500;}
 .proj-link{font-size:14px; text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:2px;}
-.proj-visual{background:var(--violet); border-radius:18px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-style:italic; font-size:20px; color:var(--violet-deep); text-align:center; padding:20px;}
+.proj-visual{background:var(--violet); border-radius:18px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-style:italic; font-size:20px; color:var(--violet-deep); text-align:center; padding:20px; position:relative; overflow:hidden;}
+.proj-visual img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0;}
+.proj-visual .img-overlay{position:absolute; inset:0; background:linear-gradient(160deg, rgba(255,107,74,0.14), rgba(185,166,232,0.22)); mix-blend-mode:multiply;}
+.proj-photo-btn{position:absolute; bottom:10px; right:10px; font-size:11.5px; background:rgba(255,255,255,0.92); color:var(--ink); border-radius:100px; padding:6px 12px; z-index:2;}
 .proj-remove{font-size:12px; color:var(--ink-muted); background:none; text-decoration:underline; margin-top:4px;}
 @media(max-width:700px){.proj-row, .proj-row:nth-child(even){grid-template-columns:1fr; direction:ltr;} .proj-visual{order:-1;}}
 
@@ -117,10 +134,18 @@ section.block.alt{background:var(--bg-alt);}
 .edu-card p{color:var(--ink-muted); font-size:14px; margin:0;}
 .cert-list{margin-top:44px;}
 .cert-list h3.label{font-family:var(--sans); font-weight:600; font-size:15px; color:var(--ink-muted); margin-bottom:16px;}
-.cert-row{display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-top:1px solid var(--violet); font-size:15px;}
+.cert-row{display:flex; justify-content:space-between; align-items:center; padding:16px 0; border-top:1px solid var(--violet); font-size:15px; gap:16px;}
 .cert-row:last-child{border-bottom:1px solid var(--violet);}
 .cert-name{font-weight:500;}
 .cert-org{color:var(--ink-muted); font-size:13.5px;}
+.cert-left{display:flex; align-items:center; gap:14px;}
+.cert-thumb{width:52px; height:52px; border-radius:10px; object-fit:cover; border:1px solid var(--violet-deep); cursor:pointer;}
+.cert-actions{display:flex; align-items:center; gap:10px;}
+.cert-actions button{font-size:12px; color:var(--ink-muted); background:none; text-decoration:underline;}
+.lightbox{position:fixed; inset:0; background:rgba(33,27,59,0.82); display:none; align-items:center; justify-content:center; z-index:400; padding:30px;}
+.lightbox.show{display:flex;}
+.lightbox img{max-width:90vw; max-height:85vh; border-radius:12px;}
+.lightbox-close{position:absolute; top:24px; right:28px; background:rgba(255,255,255,0.15); color:#fff; border-radius:50%; width:38px; height:38px; font-size:18px;}
 @media(max-width:700px){.edu-grid{grid-template-columns:1fr;}}
 
 /* Footer */
@@ -197,26 +222,51 @@ body.admin-mode .secret-dot{opacity:0.4; background:var(--coral);}
     <div>
       <div class="eyebrow" data-t="hero.eyebrow">Tiranë, Shqipëri</div>
       <h1 id="hero-name" contenteditable="false" data-path="hero.name">Fatjeta Nerguti</h1>
-      <div class="role" id="hero-role" contenteditable="false" data-path="hero.role">Full-Stack Developer</div>
+      <div class="role-row">
+        <span class="divider"></span>
+        <div class="role" id="hero-role" contenteditable="false" data-path="hero.role">Full-Stack Developer</div>
+      </div>
       <p class="summary" id="hero-summary" contenteditable="false" data-path="hero.summary">Ndërtoj aplikacione web nga fillimi në fund — nga ndërfaqja te baza e të dhënave.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-cta" data-t="hero.cta1">Shiko Projektet</a>
+        <a href="#footer" class="btn-cta-outline" data-t="hero.cta2">Kontakto</a>
+      </div>
       <div class="contact-row">
-        <a href="mailto:fatjetanerguti8@gmail.com">fatjetanerguti8@gmail.com</a>
-        <a href="tel:+355696542055">+355 69 654 2055</a>
-        <a href="https://github.com/fatjetanerguti" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/fatjeta-nerguti-b122a129b" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="contact-pill" href="mailto:fatjetanerguti8@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l9 7 9-7"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>fatjetanerguti8@gmail.com</a>
+        <a class="contact-pill" href="tel:+355696542055"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h4l1 5-2.5 1.5a12 12 0 006 6L16 13l5 1v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg>+355 69 654 2055</a>
+        <a class="contact-pill" href="https://github.com/fatjetanerguti" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>GitHub</a>
+        <a class="contact-pill" href="https://linkedin.com/in/fatjeta-nerguti-b122a129b" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 11-4-.002 2 2 0 014 .002zM3.5 8.75h3.9V21h-3.9V8.75zM10.3 8.75h3.74v1.68h.05c.52-.98 1.79-2 3.68-2 3.94 0 4.67 2.6 4.67 5.97V21h-3.9v-5.79c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.5-2.22 3.06V21h-3.9V8.75z"/></svg>LinkedIn</a>
       </div>
     </div>
     <div class="blob-wrap">
-      <svg viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg">
-        <path class="blob-anim" fill="var(--coral-soft)" d="M120,20 C160,10 200,40 210,90 C220,140 190,190 140,205 C90,220 40,195 25,145 C10,95 30,35 80,22 C93,18 107,17 120,20 Z"/>
-        <text x="115" y="122" text-anchor="middle" font-family="Fraunces, serif" font-size="34" font-style="italic" fill="var(--ink)">FN</text>
-      </svg>
+      <div id="hero-blob">
+        <svg viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="blobGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--coral-soft)"/>
+              <stop offset="100%" stop-color="var(--violet)"/>
+            </linearGradient>
+          </defs>
+          <path class="blob-anim" fill="url(#blobGrad)" d="M120,20 C160,10 200,40 210,90 C220,140 190,190 140,205 C90,220 40,195 25,145 C10,95 30,35 80,22 C93,18 107,17 120,20 Z"/>
+          <text x="115" y="124" text-anchor="middle" font-family="Fraunces, serif" font-size="36" font-weight="300" font-style="italic" fill="var(--ink)">FN</text>
+        </svg>
+      </div>
+      <img id="hero-photo" class="hero-photo" style="display:none;" alt="Fatjeta Nerguti">
+      <div class="photo-admin-row admin-only">
+        <button onclick="document.getElementById('hero-photo-input').click()" data-t="hero.uploadphoto">Ngarko foto</button>
+        <button onclick="removeHeroPhoto()" data-t="hero.removephoto">Hiq foton</button>
+        <input type="file" id="hero-photo-input" accept="image/*" style="display:none;" onchange="uploadHeroPhoto(event)">
+      </div>
     </div>
   </div>
+  <svg class="hero-wave" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z" fill="var(--violet)"/>
+  </svg>
 </section>
 
 <div class="quote-strip">
   <div class="wrap">
+    <div class="quote-mark">"</div>
     <blockquote id="quote-text" contenteditable="false" data-path="quote">Më pëlqen kur një ide bëhet diçka që mund ta prekësh — një faqe që funksionon, jo vetëm një skicë.</blockquote>
     <cite data-t="quote.cite">— Fatjeta Nerguti</cite>
   </div>
@@ -287,6 +337,11 @@ body.admin-mode .secret-dot{opacity:0.4; background:var(--coral);}
 
 <button class="secret-dot" onclick="openAdminModal()" aria-label="Admin"></button>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <img id="lightbox-img" src="" alt="Certifikatë">
+</div>
+
 <!-- Admin login modal -->
 <div class="modal-overlay" id="admin-modal">
   <div class="modal">
@@ -325,6 +380,8 @@ const STR = {
     "nav.experience":"Eksperienca","nav.projects":"Projekte","nav.skills":"Aftësi","nav.education":"Edukim",
     "nav.admin":"Admin","nav.contact":"Kontakt",
     "hero.eyebrow":"Tiranë, Shqipëri",
+    "hero.cta1":"Shiko Projektet","hero.cta2":"Kontakto",
+    "hero.uploadphoto":"Ngarko foto","hero.removephoto":"Hiq foton",
     "quote.cite":"— Fatjeta Nerguti",
     "experience.title":"Eksperienca","projects.title":"Projektet","skills.title":"Aftësitë","education.title":"Edukimi",
     "certs.title":"Certifikime",
@@ -342,6 +399,8 @@ const STR = {
     "nav.experience":"Experience","nav.projects":"Projects","nav.skills":"Skills","nav.education":"Education",
     "nav.admin":"Admin","nav.contact":"Contact",
     "hero.eyebrow":"Tirana, Albania",
+    "hero.cta1":"See Projects","hero.cta2":"Get in touch",
+    "hero.uploadphoto":"Upload photo","hero.removephoto":"Remove photo",
     "quote.cite":"— Fatjeta Nerguti",
     "experience.title":"Experience","projects.title":"Projects","skills.title":"Skills","education.title":"Education",
     "certs.title":"Certifications",
@@ -443,6 +502,32 @@ function saveData(){
   localStorage.setItem('fn_portfolio_data', JSON.stringify(DATA));
 }
 
+/* images: stored separately, keyed by array index so they survive language switches.
+   Kept in sync with DATA.sq.projects / DATA.sq.certifications by index. */
+let MEDIA = loadMedia();
+function loadMedia(){
+  try{
+    const raw = localStorage.getItem('fn_media');
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return {heroPhoto:null, projects:[], certs:[]};
+}
+function saveMedia(){
+  try{
+    localStorage.setItem('fn_media', JSON.stringify(MEDIA));
+  }catch(e){
+    alert(currentLang==='sq' ? 'Foto shumë e madhe për t\'u ruajtur në shfletues. Provo një foto më të vogël.' : 'Photo too large to store in the browser. Try a smaller photo.');
+  }
+}
+function fileToDataURL(file){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 /* ---------- rendering ---------- */
 function applyStrings(){
   document.documentElement.lang = currentLang;
@@ -461,11 +546,45 @@ function renderAll(){
   document.getElementById('hero-role').textContent = d.hero.role;
   document.getElementById('hero-summary').textContent = d.hero.summary;
   document.getElementById('quote-text').textContent = d.quote;
+  renderHeroPhoto();
   renderExperience(d);
   renderProjects(d);
   renderSkills(d);
   renderEducation(d);
   applyStrings();
+}
+
+function renderHeroPhoto(){
+  const photoEl = document.getElementById('hero-photo');
+  const blobEl = document.getElementById('hero-blob');
+  if(MEDIA.heroPhoto){
+    photoEl.src = MEDIA.heroPhoto;
+    photoEl.style.display = 'block';
+    blobEl.style.display = 'none';
+  }else{
+    photoEl.style.display = 'none';
+    blobEl.style.display = 'block';
+  }
+}
+async function uploadHeroPhoto(evt){
+  const file = evt.target.files[0];
+  if(!file) return;
+  MEDIA.heroPhoto = await fileToDataURL(file);
+  saveMedia();
+  renderHeroPhoto();
+}
+function removeHeroPhoto(){
+  MEDIA.heroPhoto = null;
+  saveMedia();
+  renderHeroPhoto();
+}
+function openLightbox(src){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox(e){
+  if(e) e.stopPropagation();
+  document.getElementById('lightbox').classList.remove('show');
 }
 
 function bindEditable(el, onCommit){
@@ -513,6 +632,7 @@ function renderExperience(d){
 }
 
 function renderProjects(d){
+  while(MEDIA.projects.length < d.projects.length) MEDIA.projects.push(null);
   const wrap = document.getElementById('projects-list');
   wrap.innerHTML = '';
   d.projects.forEach((p, i)=>{
@@ -547,12 +667,37 @@ function renderProjects(d){
       const rm = document.createElement('button');
       rm.className = 'proj-remove admin-only';
       rm.textContent = STR[currentLang]['common.remove'];
-      rm.onclick = ()=>{ DATA.sq.projects.splice(i,1); DATA.en.projects.splice(i,1); saveData(); renderAll(); };
+      rm.onclick = ()=>{ DATA.sq.projects.splice(i,1); DATA.en.projects.splice(i,1); MEDIA.projects.splice(i,1); saveData(); saveMedia(); renderAll(); };
       text.appendChild(rm);
     }
     const visual = document.createElement('div');
     visual.className = 'proj-visual';
-    visual.textContent = p.title;
+    const img = MEDIA.projects[i];
+    if(img){
+      const imgEl = document.createElement('img');
+      imgEl.src = img;
+      const overlay = document.createElement('div');
+      overlay.className = 'img-overlay';
+      visual.append(imgEl, overlay);
+    }else{
+      visual.textContent = p.title;
+    }
+    if(isAdmin){
+      const photoBtn = document.createElement('button');
+      photoBtn.className = 'proj-photo-btn';
+      photoBtn.textContent = img ? (currentLang==='sq' ? 'Ndrysho foto' : 'Change photo') : (currentLang==='sq' ? '+ Shto foto' : '+ Add photo');
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file'; fileInput.accept = 'image/*'; fileInput.style.display = 'none';
+      fileInput.onchange = async (e)=>{
+        const file = e.target.files[0];
+        if(!file) return;
+        MEDIA.projects[i] = await fileToDataURL(file);
+        saveMedia();
+        renderAll();
+      };
+      photoBtn.onclick = ()=>fileInput.click();
+      visual.append(photoBtn, fileInput);
+    }
     row.append(text, visual);
     wrap.appendChild(row);
   });
@@ -600,12 +745,23 @@ function renderEducation(d){
     card.append(h3, org, p);
     wrap.appendChild(card);
   });
+  while(MEDIA.certs.length < d.certifications.length) MEDIA.certs.push(null);
   const certWrap = document.getElementById('certs-list');
   certWrap.innerHTML = '';
   d.certifications.forEach((c, i)=>{
     const row = document.createElement('div');
     row.className = 'cert-row';
     const left = document.createElement('div');
+    left.className = 'cert-left';
+    const img = MEDIA.certs[i];
+    if(img){
+      const thumb = document.createElement('img');
+      thumb.className = 'cert-thumb';
+      thumb.src = img;
+      thumb.onclick = ()=>openLightbox(img);
+      left.appendChild(thumb);
+    }
+    const textCol = document.createElement('div');
     const name = document.createElement('div');
     name.className = 'cert-name';
     name.textContent = c.name;
@@ -614,15 +770,28 @@ function renderEducation(d){
     org.className = 'cert-org';
     org.textContent = c.org;
     bindEditable(org, v=>c.org=v);
-    left.append(name, org);
+    textCol.append(name, org);
+    left.appendChild(textCol);
     row.appendChild(left);
     if(isAdmin){
+      const actions = document.createElement('div');
+      actions.className = 'cert-actions';
+      const upBtn = document.createElement('button');
+      upBtn.textContent = img ? (currentLang==='sq' ? 'Ndrysho skanim' : 'Change scan') : (currentLang==='sq' ? '+ Ngarko diplomë/certifikatë' : '+ Upload diploma/certificate');
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file'; fileInput.accept = 'image/*'; fileInput.style.display = 'none';
+      fileInput.onchange = async (e)=>{
+        const file = e.target.files[0];
+        if(!file) return;
+        MEDIA.certs[i] = await fileToDataURL(file);
+        saveMedia(); renderAll();
+      };
+      upBtn.onclick = ()=>fileInput.click();
       const rm = document.createElement('button');
-      rm.className = 'admin-only';
-      rm.style.cssText = 'font-size:12px;color:var(--ink-muted);background:none;text-decoration:underline;';
       rm.textContent = STR[currentLang]['common.remove'];
-      rm.onclick = ()=>{ DATA.sq.certifications.splice(i,1); DATA.en.certifications.splice(i,1); saveData(); renderAll(); };
-      row.appendChild(rm);
+      rm.onclick = ()=>{ DATA.sq.certifications.splice(i,1); DATA.en.certifications.splice(i,1); MEDIA.certs.splice(i,1); saveData(); saveMedia(); renderAll(); };
+      actions.append(upBtn, fileInput, rm);
+      row.appendChild(actions);
     }
     certWrap.appendChild(row);
   });
@@ -637,7 +806,8 @@ function addExperience(){
 function addProject(){
   DATA.sq.projects.push({title:"Projekt i ri", desc:"Përshkrim i shkurtër.", tags:["Tag"], link:"https://github.com/fatjetanerguti"});
   DATA.en.projects.push({title:"New project", desc:"Short description.", tags:["Tag"], link:"https://github.com/fatjetanerguti"});
-  saveData(); renderAll();
+  MEDIA.projects.push(null);
+  saveData(); saveMedia(); renderAll();
 }
 function addSkill(){
   DATA.sq.skills.push({category:"Kategori e re", items:["Aftësi"]});
@@ -647,7 +817,8 @@ function addSkill(){
 function addCert(){
   DATA.sq.certifications.push({name:"Certifikatë e re", org:"Organizata"});
   DATA.en.certifications.push({name:"New certificate", org:"Organization"});
-  saveData(); renderAll();
+  MEDIA.certs.push(null);
+  saveData(); saveMedia(); renderAll();
 }
 
 /* ---------- lang toggle ---------- */
@@ -722,7 +893,7 @@ async function changePassword(){
 
 /* ---------- export / import / reset ---------- */
 function exportJSON(){
-  const blob = new Blob([JSON.stringify(DATA, null, 2)], {type:'application/json'});
+  const blob = new Blob([JSON.stringify({data:DATA, media:MEDIA}, null, 2)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'fatjeta-portfolio-data.json';
@@ -735,7 +906,13 @@ function importJSON(evt){
   reader.onload = () => {
     try{
       const parsed = JSON.parse(reader.result);
-      if(parsed.sq && parsed.en){
+      if(parsed.data && parsed.data.sq && parsed.data.en){
+        DATA = parsed.data;
+        MEDIA = parsed.media || {heroPhoto:null, projects:[], certs:[]};
+        saveData(); saveMedia();
+        renderAll();
+        alert(currentLang==='sq' ? 'Importuar me sukses.' : 'Imported successfully.');
+      }else if(parsed.sq && parsed.en){
         DATA = parsed;
         saveData();
         renderAll();
@@ -753,7 +930,8 @@ function resetToDefault(){
   const ok = confirm(currentLang==='sq' ? 'Kjo do rikthejë të gjithë përmbajtjen te CV-ja origjinale. Vazhdo?' : 'This will reset all content back to the original CV. Continue?');
   if(!ok) return;
   DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
-  saveData();
+  MEDIA = {heroPhoto:null, projects:[], certs:[]};
+  saveData(); saveMedia();
   renderAll();
 }
 
